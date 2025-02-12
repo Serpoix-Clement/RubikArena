@@ -47,4 +47,17 @@ public class selectionBehaviour : MonoBehaviour
         }
         titreNom.text = "Eric";
     }
+
+    public void ButtonEvan()
+    {
+        CacherToutLeMonde();
+        foreach (GameObject obj in listePerso)
+        {
+            if (obj.name == "MSH_Evan")
+            {
+                obj.SetActive(true);
+            }
+        }
+        titreNom.text = "Evan";
+    }
 }
