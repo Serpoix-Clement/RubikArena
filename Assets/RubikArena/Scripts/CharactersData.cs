@@ -1,13 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CharactersData", menuName = "Game Data/Character Data")]
-public class RacesData : ScriptableObject
+[CreateAssetMenu(fileName = "CharacterData", menuName = "Rubikarena/CharacterData")]
+public class CharacterData: ScriptableObject
 {
-    public string CharacterName;
-    public int pv;
-    public int force;
-    public string Description;
+    [System.Serializable]
+    public class CharacterType
+    {
+        public string name;
+    
 
+        public GameObject prefab;
+
+        public int force;
+        public int PV;
+        public string description; 
+    }
+
+    public List<CharacterType>  CharactersTypes; 
 }

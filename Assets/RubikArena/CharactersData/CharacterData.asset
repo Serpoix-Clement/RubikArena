@@ -10,9 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 198a3a70cf2fe904b8896b14e7ca6e54, type: 3}
-  m_Name: Anthony_Data
+  m_Name: CharacterData
   m_EditorClassIdentifier: 
-  CharacterName: Anthony
-  pv: 0
-  force: 0
-  Description: Anthony , plutot bon cuisinier
+  CharactersTypes:
+  - name: Anthony
+    prefab: {fileID: 0}
+    force: 0
+    PV: 0
+    description: 
+  - name: Eric
+    prefab: {fileID: 0}
+    force: 0
+    PV: 0
+    description: 
+  - name: "Cl\xE9ment"
+    prefab: {fileID: 0}
+    force: 0
+    PV: 0
+    description: 
