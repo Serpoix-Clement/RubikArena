@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private InputSystem control;
     private Rigidbody rb;
+    private Animator animator;
 
     private Vector2 moveInput; //raw input receptionn� depuis la mannette
     private float speed;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         control = new InputSystem();
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         speed = 1;
     }
 
@@ -37,5 +39,15 @@ public class PlayerController : MonoBehaviour
     private void Update()
         {
             transform.Translate(0, 0, moveInput.x * speed * Time.deltaTime);
+            Debug.Log(moveInput);
+
+            if (Mathf.Abs(moveInput.x) >= 0.1)
+            {
+                animator.SetBool("Walk", true);
+            }
+            else
+            {
+                animator.SetBool("Walk", false);
+            }
         }
 }
