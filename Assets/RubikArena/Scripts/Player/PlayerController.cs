@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput; //raw input receptionn� depuis la mannette
     private float speed;
 
-    private void Start()
+    private void Awake()
     {
         control = new InputSystem();
         rb = GetComponent<Rigidbody>();
@@ -23,12 +23,6 @@ public class PlayerController : MonoBehaviour
         //Inscription du move
         control.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         control.Player.Move.canceled += ctx => moveInput = Vector2.zero;
-
-        /*//Inscription du jump
-        control.Player.Jump.performed += ctx => Jump();
-
-        //Inscription du jump
-        control.Player.Dash.performed += ctx => Dash();*/
 
         //Enable l'inputaction
         control.Enable();
@@ -42,6 +36,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
         {
-            transform.Translate(moveInput.x * speed * Time.deltaTime, 0, 0);
+            transform.Translate(0, 0, moveInput.x * speed * Time.deltaTime);
         }
 }
