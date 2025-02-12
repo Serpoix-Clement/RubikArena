@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +13,20 @@ public class MenuManager : MonoBehaviour
     public GameObject CreditsMenu;
 
 
+    IEnumerator CamTransition(Quaternion target)
+    {
+        float duration = 0.2f;
+        //temps écoulé pendant l'anim
+        float time = 0f;
+        quaternion startrotation = Cam.transform.rotation;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            Cam.transform.rotation = Quaternion.Slerp(startrotation, target, time / duration);
+            yield return null;
+        }
 
+    }
     //Fonction pour lancer la partie 
     public void StartGame()
     {
@@ -30,7 +44,7 @@ public class MenuManager : MonoBehaviour
         BackGroundCredit.SetActive(true);
 
         //la camera tourne 
-        Cam.transform.rotation = Quaternion.Euler(0, 180, 0);
+        StartCoroutine(CamTransition(Quaternion.Euler(0, 180, 0)));
 
 
         //Je désactive le gameobject contenant Tout L'UI Du Menu Principale
@@ -46,7 +60,7 @@ public class MenuManager : MonoBehaviour
     {
         BackGroundMain.SetActive(true );
         BackGroundCredit.SetActive(false);
-        Cam.transform.rotation = Quaternion.Euler(0,0,0);
+        StartCoroutine(CamTransition(Quaternion.Euler(0, 360, 0)));
         CreditsMenu.SetActive(false );
         MainMenu.SetActive(true);
     }
