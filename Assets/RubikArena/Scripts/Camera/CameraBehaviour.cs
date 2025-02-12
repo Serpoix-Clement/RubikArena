@@ -2,23 +2,28 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    //les game object des deux joueurs
-    public GameObject joueur1;
-    public GameObject joueur2;
+    [Header("GameObject")]
+    public Transform player1;
+    public Transform player2;
+    private Camera cam;
 
-    //les positions des deux joueurs
-    private Vector3 position1;
-    private Vector3 position2;
+    [Header("Parametre")]
+    public float smoothSpeed = 0.1f; // Vitesse follow camera
+    private Vector3 velocity;
+    
 
-    //distance entre les deux joueur
-    private float distance;
-
-    private void Update()
+    private void Start()
     {
-        position1 = joueur1.transform.position;
-        position2 = joueur2.transform.position;
+        cam = GetComponent<Camera>();
+    }
+    private void LateUpdate()
+    {
+        MoveCamera();
+    }
 
-        distance = (position1-position2).magnitude;
-        transform.position = new Vector3(position1.x - Mathf.Abs(distance)/2, transform.position.y, transform.position.z);
+    private void MoveCamera()
+    {
+        Vector3 midPoint = (player1.position + player2.position) / 2f;
+        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(midPoint.x, midPoint.y, transform.position.z), ref velocity, smoothSpeed);
     }
 }

@@ -250,9 +250,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &283556712 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5594455240958915251, guid: 0c96e0f2a1e9f044cb479f13d9567d42,
+--- !u!4 &283556716 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5109527060437395465, guid: 0c96e0f2a1e9f044cb479f13d9567d42,
     type: 3}
   m_PrefabInstance: {fileID: 1705659877}
   m_PrefabAsset: {fileID: 0}
@@ -576,6 +576,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e523169ecd60a449cf07c0b286ee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1238367941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2913754068411489704, guid: 7ddd158637db74a4fb47f6b69d11184b,
+    type: 3}
+  m_PrefabInstance: {fileID: 42128146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1279093533
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,8 +933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165179b542f4f9a4a8655bb560305f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joueur1: {fileID: 1238367932}
-  joueur2: {fileID: 283556712}
+  player1: {fileID: 283556716}
+  player2: {fileID: 1238367941}
+  smoothSpeed: 0.1
 --- !u!1 &1530435127
 GameObject:
   m_ObjectHideFlags: 0
